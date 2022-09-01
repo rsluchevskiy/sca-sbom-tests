@@ -1,0 +1,24 @@
+{
+  "name": "bower-project-1",
+  "authors": [
+    "ORT Contributors"
+  ],
+  "description": "Test bower project with a single bower.json file.",
+  "main": "",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/tsteenbe/sca-sbom-tests",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "2.4.0"
+  },
+  "devDependencies": {
+    "jquery": "3.3.1"
+  }
+}

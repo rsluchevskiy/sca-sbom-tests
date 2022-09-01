@@ -1,0 +1,36 @@
+name: OSS Review Toolkit (ORT)
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: test-projects
+
+      - name: ORT CI Action run
+        id: ort-ci-action
+        uses: tsteenbe/ort-ci-action@224296260d994e13ed3375e8c565255173371d48
+        with:
+          ort_docker_image: "ghcr.io/alliander-opensource/ort-container:latest"
+          ort_disable_scanner: true
+          ort_disable_downloader: true
+          ort_disable_evaluator: true
+          ort_disable_advisor: false
+          ort_cli_config_tmpl: "ort.conf.github.tmpl"
+          ort_config_file: ''
+          ort_log_level: info
+          ort_opts: -Xmx5120m
+          project_dir: test-projects
+
+      - name: ort-action-artifacts
+        uses: actions/upload-artifact@v3
+        with:
+            name: analysis
+            path: ./test-projects/ort-results

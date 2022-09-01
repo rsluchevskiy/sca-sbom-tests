@@ -1,0 +1,29 @@
+name: Microsoft SBOM tool
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Generate SBOM
+      run: |
+        curl -Lo $RUNNER_TEMP/sbom-tool https://github.com/microsoft/sbom-tool/releases/latest/download/sbom-tool-linux-x64
+        chmod +x $RUNNER_TEMP/sbom-tool
+        mkdir ./sboms
+        $RUNNER_TEMP/sbom-tool generate -b ./sboms -bc . -pn Test -pv 0.0.1 -ps ORT -nsb https://sbom.oss-review-toolkit.org -V Verbose
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        path: sboms

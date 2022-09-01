@@ -1,0 +1,33 @@
+name: Anchor Syft
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v3
+
+    - name: Create sboms dir
+      run: mkdir sboms
+
+    - uses: anchore/sbom-action@v0.12.0
+      with:
+        path: ./
+        output-file: sboms/spdx-json
+        artifact-name: anchore-syft-sbom.spdx.json
+
+    - uses: anchore/sbom-action@v0.12.0
+      with:
+        path: ./
+        output-file: sboms/cyclonedx-json
+        artifact-name: anchore-syft-sbom.cyclonedx.json
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        path: sboms

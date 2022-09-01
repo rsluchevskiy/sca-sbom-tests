@@ -1,0 +1,25 @@
+{
+    "name": "npm-project-best-practices",
+    "description": "An NPM project that follows provenance metadata best practices.",
+    "version": "0.0.1",
+    "license": "Apache-2.0",
+    "private": true,
+    "author": {
+        "name": "ORT Contributors",
+        "url": "https://oss-review-toolkit.org"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tsteenbe/sca-sbom-tests.git",
+        "directory": "npm-project-best-practices"
+    },
+    "dependencies": {
+        "memoize-one": "^5.2.1",
+        "pako": "^2.0.4"
+    },
+    "devDependencies": {
+        "html-inline-css-webpack-plugin": "^1.11.1",
+        "webpack-event-plugin": "^1.1.1"
+    },
+    "main": "index.js"
+}

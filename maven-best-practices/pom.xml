@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <organization>
+    <name>ORT Contributors</name>
+    <url>https://oss-review-toolkit.org</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <comments>SPDX-License-Identifier: Apache-2.0</comments>
+      <distribution>repo</distribution>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+
+  <name>maven-project-1</name>
+  <url>https://github.com/tsteenbe/sca-sbom-tests.git</url>
+  <description>An Maven project that follows provenance metadata best practices.</description>
+  <inceptionYear>2022</inceptionYear>
+
+  <groupId>org.oss-review-toolkit</groupId>
+  <artifactId>maven-project-1</artifactId>
+  <version>0.0.1</version>
+  <packaging>jar</packaging>
+
+  <scm>
+    <url>https://github.com/tsteenbe/sca-sbom-tests.git</url>
+    <connection>scm:git:git://github.com/tsteenbe/sca-sbom-tests.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/tsteenbe/sca-sbom-tests.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.checkerframework</groupId>
+      <artifactId>checker</artifactId>
+      <version>1.9.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.checkerframework</groupId>
+      <artifactId>checker-qual</artifactId>
+      <version>1.9.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.checkerframework</groupId>
+      <artifactId>jdk8</artifactId>
+      <version>1.9.4</version>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+
+    <repository>
+      <id>mvnapache</id>
+      <layout>default</layout>
+      <name>maven-apache-repo</name>
+      <releases>
+        <checksumPolicy>warn</checksumPolicy>
+        <enabled>true</enabled>
+      </releases>
+      <url>https://repo.maven.apache.org/maven2/</url>
+    </repository>
+
+    <repository>
+      <id>osgeo</id>
+      <name>OSGeo Release Repository</name>
+      <url>https://repo.osgeo.org/repository/release/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+
+  </repositories>
+
+</project>
